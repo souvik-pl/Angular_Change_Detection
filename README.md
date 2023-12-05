@@ -1,27 +1,31 @@
-# AngularChangeDetection
+# Angular Change Detection
+This repository accompanies the article on [Rendering in Angular and React](https://javascript.plainenglish.io/rendering-in-angular-and-react-3fadb53fc616), where we delve into the intricacies of how Angular and React handles rendering in different scenarios. The primary focus is on the initial rendering of an application and the subsequent re-rendering process triggered by updates within the components.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+## Overview
+The article explores the rendering process using a small Angular application comprising three components:
 
-## Development server
+- **App:** The root component.
+- **ChildOne:** A child component of App.
+- **ChildTwo:** Another child component of App.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Initial Rendering
+Upon the initial load of the application, Angular performs change detection for all components within the component tree. This process starts with the root component (App) and cascades down through ChildOne and ChildTwo. Consequently, this leads to the rendering of all components and updates to the DOM.
 
-## Code scaffolding
+## Subsequent Re-rendering
+Events or asynchronous operations, such as setTimeout, setInterval, or Promises, trigger updates in the component tree. Angular, facilitated by Zone.js, is notified of these changes. Similar to the initial rendering, Angular initiates change detection starting from the root component, traversing the component tree. If any changes are detected, the DOM is updated accordingly.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Change Detection Optimization
+Given that change detection can be resource-intensive, the article highlights the possibility of optimizing it by employing the OnPush change detection strategy.
 
-## Build
+## Running the Application
+To run the application locally, follow these steps:
+1. Make sure you have Node installed (preferrably Node v14.15.5).
+2. Clone the repository: `git clone [repository-url]`
+3. Navigate to the project folder: `cd [project-folder]`
+4. Install dependencies: `npm install`
+5. Start the development server: `npm run start`
+6. Open your browser and visit http://localhost:4200/ to view the application.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Feel free to explore the code and use it as a reference while reading the [article](https://javascript.plainenglish.io/rendering-in-angular-and-react-3fadb53fc616) to gain a deeper understanding of Angular rendering mechanisms.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Happy coding! 🚀
